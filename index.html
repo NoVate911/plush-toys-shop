@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plushie - магазин плюшевых игрушек премиум качества">
+    <title>Plushie | Магазин плюшевых игрушек</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Курсорный эффект -->
+    <div class="cursor-glow"></div>
+
+    <!-- Шапка -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🧸</span>
+                <span class="logo-text">Plushie</span>
+            </a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Главная</a></li>
+                    <li><a href="#catalog" class="nav-link">Каталог</a></li>
+                    <li><a href="#about" class="nav-link">О нас</a></li>
+                    <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn" aria-label="Поиск">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn cart-btn" aria-label="Корзина" id="cartBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 6h15l-1.5 9h-12z"></path>
+                        <circle cx="9" cy="20" r="1"></circle>
+                        <circle cx="18" cy="20" r="1"></circle>
+                        <path d="M6 6L5 3H2"></path>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <nav class="mobile-nav">
+                <a href="#home" class="mobile-nav-link">Главная</a>
+                <a href="#catalog" class="mobile-nav-link">Каталог</a>
+                <a href="#about" class="mobile-nav-link">О нас</a>
+                <a href="#reviews" class="mobile-nav-link">Отзывы</a>
+                <a href="#contacts" class="mobile-nav-link">Контакты</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Корзина -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Корзина</h3>
+            <button class="cart-close" id="cartClose" aria-label="Закрыть корзину">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty" id="cartEmpty">
+                <div class="cart-empty-icon">🧸</div>
+                <p class="cart-empty-text">Ваша корзина пуста</p>
+                <p class="cart-empty-subtext">Добавьте что-нибудь мягкое и уютное</p>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span class="cart-total-price" id="cartTotal">0 ₽</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">Оформить заказ</button>
+        </div>
+    </aside>
+
+    <main>
+        <!-- Hero секция -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge" data-animate="fade-up">
+                        <span class="hero-badge-dot"></span>
+                        Новая коллекция 2026
+                    </div>
+                    <h1 class="hero-title" data-animate="fade-up" data-delay="100">
+                        Плюшевые друзья,<br>
+                        <span class="hero-title-accent">которые согревают</span>
+                    </h1>
+                    <p class="hero-desc" data-animate="fade-up" data-delay="200">
+                        Коллекция handcrafted плюшевых игрушек из экологичных материалов. 
+                        Каждая игрушка создана с любовью и вниманием к деталям.
+                    </p>
+                    <div class="hero-actions" data-animate="fade-up" data-delay="300">
+                        <a href="#catalog" class="btn btn-primary btn-lg">
+                            Смотреть каталог
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="#about" class="btn btn-outline btn-lg">Наша история</a>
+                    </div>
+                    <div class="hero-stats" data-animate="fade-up" data-delay="400">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">50+</span>
+                            <span class="hero-stat-label">моделей</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">10k+</span>
+                            <span class="hero-stat-label">покупателей</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">100%</span>
+                            <span class="hero-stat-label">экоматериалы</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" data-animate="fade-left" data-delay="200">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-glow"></div>
+                        <img src="https://images.unsplash.com/photo-1556012018-50c5c0da73bf?w=800&h=800&fit=crop" alt="Плюшевый мишка Plushie" class="hero-image" id="heroImage">
+                        <div class="floating-card floating-card-1">
+                            <span class="floating-card-icon">✨</span>
+                            <span>Handmade</span>
+                        </div>
+                        <div class="floating-card floating-card-2">
+                            <span class="floating-card-icon">🌿</span>
+                            <span>Eco-friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Листайте вниз</span>
+            </div>
+        </section>
+
+        <!-- Каталог -->
+        <section class="catalog" id="catalog">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-animate="fade-up">Каталог</span>
+                    <h2 class="section-title" data-animate="fade-up" data-delay="100">Наши плюшевые игрушки</h2>
+                    <p class="section-desc" data-animate="fade-up" data-delay="200">
+                        Выберите идеального мягкого друга из нашей коллекции
+                    </p>
+                </div>
+
+                <div class="catalog-filters" data-animate="fade-up" data-delay="300">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="bears">Мишки</button>
+                    <button class="filter-btn" data-filter="bunnies">Зайчики</button>
+                    <button class="filter-btn" data-filter="cats">Котики</button>
+                    <button class="filter-btn" data-filter="fantasy">Фэнтези</button>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Товары генерируются через JS -->
+                </div>
+
+                <div class="catalog-actions" data-animate="fade-up">
+                    <button class="btn btn-outline" id="loadMoreBtn">Загрузить ещё</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- О нас -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-images" data-animate="fade-right">
+                        <div class="about-image-main">
+                            <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600&h=750&fit=crop" alt="Мастерская Plushie">
+                        </div>
+                        <div class="about-image-secondary">
+                            <img src="https://images.unsplash.com/photo-1605218427306-0223d0ab7748?w=600&h=600&fit=crop" alt="Материалы для игрушек">
+                        </div>
+                        <div class="about-experience">
+                            <span class="about-experience-number">8</span>
+                            <span class="about-experience-text">лет<br>опыта</span>
+                        </div>
+                    </div>
+                    <div class="about-content" data-animate="fade-left">
+                        <span class="section-tag">О нас</span>
+                        <h2 class="section-title">Создаём мягкую радость с 2018 года</h2>
+                        <p class="about-text">
+                            Plushie — это не просто магазин игрушек. Мы создаём хранителей уюта, 
+                            которые становятся лучшими друзьями на многие годы.
+                        </p>
+                        <p class="about-text">
+                            Каждая игрушка проходит 12 этапов ручной работы: от эскиза до финальной 
+                            упаковки. Мы используем только сертифицированные гипоаллергенные материалы.
+                        </p>
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <div class="about-feature-icon">🧵</div>
+                                <div class="about-feature-content">
+                                    <h4>Ручная работа</h4>
+                                    <p>Каждая деталь прошита вручную</p>
+                                </div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">🌱</div>
+                                <div class="about-feature-content">
+                                    <h4>Эко-материалы</h4>
+                                    <p>Безопасные ткани и наполнители</p>
+                                </div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">💝</div>
+                                <div class="about-feature-content">
+                                    <h4>Подарочная упаковка</h4>
+                                    <p>Бесплатно к каждому заказу</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card" data-animate="fade-up">
+                        <div class="feature-icon">🚚</div>
+                        <h3 class="feature-title">Бесплатная доставка</h3>
+                        <p class="feature-desc">При заказе от 3000 ₽ по всей России</p>
+                    </div>
+                    <div class="feature-card" data-animate="fade-up" data-delay="100">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Гарантия качества</h3>
+                        <p class="feature-desc">Возврат или обмен в течение 30 дней</p>
+                    </div>
+                    <div class="feature-card" data-animate="fade-up" data-delay="200">
+                        <div class="feature-icon">🎁</div>
+                        <h3 class="feature-title">Персонализация</h3>
+                        <p class="feature-desc">Имя на бирке и выбор цвета</p>
+                    </div>
+                    <div class="feature-card" data-animate="fade-up" data-delay="300">
+                        <div class="feature-icon">💬</div>
+                        <h3 class="feature-title">Поддержка 24/7</h3>
+                        <p class="feature-desc">Ответим на любые вопросы</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section class="reviews" id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-animate="fade-up">Отзывы</span>
+                    <h2 class="section-title" data-animate="fade-up" data-delay="100">Что говорят наши клиенты</h2>
+                </div>
+                <div class="reviews-slider" data-animate="fade-up" data-delay="200">
+                    <div class="reviews-track" id="reviewsTrack">
+                        <!-- Отзывы генерируются через JS -->
+                    </div>
+                    <div class="reviews-nav">
+                        <button class="reviews-nav-btn prev" id="reviewsPrev" aria-label="Предыдущий отзыв">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6"></path>
+                            </svg>
+                        </button>
+                        <button class="reviews-nav-btn next" id="reviewsNext" aria-label="Следующий отзыв">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты / CTA -->
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <div class="contacts-card" data-animate="scale-up">
+                    <div class="contacts-content">
+                        <span class="section-tag">Свяжитесь с нами</span>
+                        <h2 class="section-title">Хотите особенную игрушку?</h2>
+                        <p class="contacts-desc">
+                            Мы создадим уникального плюшевого друга по вашему эскизу или идее. 
+                            Расскажите нам о вашей мечте.
+                        </p>
+                        <div class="contacts-info">
+                            <a href="mailto:hello@plushie.ru" class="contact-link">
+                                <span class="contact-link-icon">✉️</span>
+                                hello@plushie.ru
+                            </a>
+                            <a href="tel:+74951234567" class="contact-link">
+                                <span class="contact-link-icon">📞</span>
+                                +7 (495) 123-45-67
+                            </a>
+                            <span class="contact-link">
+                                <span class="contact-link-icon">📍</span>
+                                Москва, ул. Уютная, 12
+                            </span>
+                        </div>
+                        <div class="contacts-socials">
+                            <a href="#" class="social-link" aria-label="Telegram">TG</a>
+                            <a href="#" class="social-link" aria-label="VK">VK</a>
+                            <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        </div>
+                    </div>
+                    <form class="contacts-form" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Ваше имя</label>
+                            <input type="text" id="name" class="form-input" placeholder="Как к вам обращаться?" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Сообщение</label>
+                            <textarea id="message" class="form-textarea" rows="4" placeholder="Расскажите о желаемой игрушке..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">🧸</span>
+                        <span class="logo-text">Plushie</span>
+                    </a>
+                    <p class="footer-desc">
+                        Магазин handcrafted плюшевых игрушек премиум качества.
+                    </p>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-title">Навигация</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#catalog">Каталог</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-title">Покупателям</h4>
+                    <ul>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-title">Контакты</h4>
+                    <ul>
+                        <li><a href="mailto:hello@plushie.ru">hello@plushie.ru</a></li>
+                        <li><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+                        <li>Москва, ул. Уютная, 12</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Plushie. Все права защищены.</p>
+                <p>Сделано с ❤️ и мягкостью</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка наверх -->
+    <button class="back-to-top" id="backToTop" aria-label="Вернуться наверх">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 15l-6-6-6 6"></path>
+        </svg>
+    </button>
+
+    <!-- Toast уведомления -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Модальное окно товара -->
+    <div class="product-modal" id="productModal">
+        <div class="product-modal-overlay" id="productModalOverlay"></div>
+        <div class="product-modal-content">
+            <button class="product-modal-close" id="productModalClose" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="product-modal-body" id="productModalBody"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
